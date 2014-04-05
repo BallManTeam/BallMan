@@ -13,13 +13,19 @@
 #include "Box2D.h"
 #include "ContactListener.h"
 
-#define DEBUG_DRAW_STATE 1 // 0-Off 1-On
+//#define DEBUG_DRAW_STATE 1 // 0-Off 1-On
 
 //#if DEBUG_DRAW_STATE && DEBUG
 //#define DEBUG_DRAW
 //#endif
 
-class GameLayer : cocos2d::CCLayer
+typedef enum {
+    GameLayerTagInvalid = 0,
+    GameLayerTagTank,
+    GameLayerTagCannonball,
+} GameLayerTag;
+
+class GameLayer : public cocos2d::CCLayer
 {
     
 private:
@@ -32,11 +38,16 @@ private:
     
     
 public:
+    
     virtual bool init();
     
     static cocos2d::CCScene* scene();
     
     CREATE_FUNC(GameLayer);
+    
+    virtual ~GameLayer();
+    
+    void tick(float dt);
 };
 
 #endif /* defined(__BallMan__GameScene__) */
