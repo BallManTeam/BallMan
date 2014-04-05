@@ -9,6 +9,9 @@
 #include "GameLayer.h"
 
 #include "Ground.h"
+#include <set>
+#include <vector>
+#include "wip.h"
 
 using namespace cocos2d;
 
@@ -76,47 +79,76 @@ bool GameLayer::init()
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
     
     // Ground definition
-    b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(visibleSize.width/2, 15.0f);
-    b2Body *groundBody = world->CreateBody(&groundBodyDef);
-    b2PolygonShape groundBox;
-    groundBox.SetAsBox(visibleSize.width/2, 15.0f);
-    groundBody->CreateFixture(&groundBox, 0);
     Ground *ground = Ground::create();
-    ground->setPosition(CCPointMake(visibleSize.width/2, 15.0f));
-    ground->setContentSize(ccp(visibleSize.width, 30.0f));
-    CCLOG("%f %f", visibleSize.width, visibleSize.height);
+    ground->setProperties(visibleSize, world);
+    ground->setTag(GameLayerTagGround);
     this->addChild(ground);
-    groundBody->SetUserData(ground);
     
-    // Tank body definition
-    b2BodyDef tankBodyDef;
-    tankBodyDef.type = b2_dynamicBody;
-    tankBodyDef.position.Set(100, 100);
-    b2Body *leftTankBody = world->CreateBody(&tankBodyDef);
-    tankBodyDef.position.Set(visibleSize.width-100, 100);
-    b2Body *rightTankBody = world->CreateBody(&tankBodyDef);
-    b2PolygonShape tankShape;
-    tankShape.SetAsBox(32, 32);
-    b2FixtureDef tankFixtureDef;
-    tankFixtureDef.shape = &tankShape;
-    tankFixtureDef.density = 1.0f;
-    tankFixtureDef.friction = 0.3f;
-    tankFixtureDef.restitution = 0.2f;
-    leftTankBody->CreateFixture(&tankFixtureDef);
-    rightTankBody->CreateFixture(&tankFixtureDef);
+//    
+//    // Tank body definition
+//    b2BodyDef tankBodyDef;
+//    tankBodyDef.type = b2_dynamicBody;
+//    tankBodyDef.position.Set(100, 100);
+//    b2Body *leftTankBody = world->CreateBody(&tankBodyDef);
+//    tankBodyDef.position.Set(visibleSize.width-100, 100);
+//    b2Body *rightTankBody = world->CreateBody(&tankBodyDef);
+//    b2PolygonShape tankShape;
+//    tankShape.SetAsBox(32, 32);
+//    b2FixtureDef tankFixtureDef;
+//    tankFixtureDef.shape = &tankShape;
+//    tankFixtureDef.density = 1.0f;
+//    tankFixtureDef.friction = 0.3f;
+//    tankFixtureDef.restitution = 0.2f;
+//    leftTankBody->CreateFixture(&tankFixtureDef);
+//    rightTankBody->CreateFixture(&tankFixtureDef);
 
     // Left and right tank
-    CCSprite *leftTank = CCSprite::create("red_tank.png");
+    Tank *leftTank = (Tank *)CCSprite::create("red_tank.png");
+    leftTank->setProperties(b2Vec2(100.0f, 100.0f), world, TankPositionLeft); //create("red_tank.png", b2Vec2(100.0f, 100.0f), world, TankPositionLeft);
     leftTank->setPosition(ccp(100.0f, 100.0f));
+    leftTank->setTag(GameLayerTagTank);
     this->addChild(leftTank);
-    leftTankBody->SetUserData(leftTank);
-    CCSprite *rightTank = CCSprite::create("green_tank.png");
+    tankRed = leftTank;
+    Tank *rightTank = (Tank *)CCSprite::create("green_tank.png");
+    rightTank->setProperties(b2Vec2(visibleSize.width-100.0f, 100.0f), world, TankPositionRight);
     rightTank->setPosition(ccp(visibleSize.width-100.0f, 100.0f));
+    rightTank->setTag(GameLayerTagTank);
     this->addChild(rightTank);
-    rightTankBody->SetUserData(rightTank);
+    tankGreen = rightTank;
+    
+    // Cannonball
+    b2BodyDef cannonBodyDef = b2BodyDefMake(b2_dynamicBody, false, b2Vec2_zero, 0);
+    b2Body *cannonBody = world->CreateBody(&cannonBodyDef);
+    b2CircleShape cannonShape = b2CircleShapeMake(4);
+    b2FixtureDef cannonFixtureDef = b2FixtureDefMake(&cannonShape, 1.0, 0.2, 0.5);
+    cannonBody->CreateFixture(&cannonFixtureDef);
+    CCSprite *ball = CCSprite::create("cannon_ball.png");
+    ball->setVisible(false);
+    this->addChild(ball);
+    cannonBody->SetUserData(ball);
+    
+    // Score label
+    CCLabelTTF *labelRed = CCLabelTTF::create("Score 0", "Arial", 20);
+    labelRed->setColor(ccc3(0.0, 0.0, 0.0));
+    labelRed->setAnchorPoint(ccp(0.0, 1.0));
+    labelRed->setPosition(ccp(30, visibleSize.height));
+    labelRed->setTag(GameLayerTagLabelRed);
+    this->addChild(labelRed);
+    
+    CCLabelTTF *labelGreen = CCLabelTTF::create("Score 0", "Arial", 20);
+    labelGreen->setColor(ccc3(0.0, 0.0, 0.0));
+    labelGreen->setAnchorPoint(ccp(1.0, 1.0));
+    labelGreen->setPosition(ccp(visibleSize.width-30, visibleSize.height));
+    labelGreen->setTag(GameLayerTagLabelGreen);
+    this->addChild(labelGreen);
     
     this->schedule(schedule_selector(GameLayer::tick));
+
+    // For testing!!
+//    contactListener->isCannonballContacted = true;
+    
+    // Game starts
+    turn = GameTurnPlayerRed;
     
     return true;
 }
@@ -129,38 +161,75 @@ void GameLayer::tick(float dt)
         b2Vec2 pos = b->GetPosition();
         myActor->setPosition(B2VEC2_TO_CCPOINT(pos));
     }
+    
 //        myActor.position = B2VEC2_M_TO_CGPOINT_P(pos);
 //        if (b != knifeBody) myActor.rotation = -CC_RADIANS_TO_DEGREES(b->GetAngle());
 //            }
 //    std::set<b2Body*>::iterator pos;
-//    for (pos = contactListener->slicedFruits.begin();
-//         pos != contactListener->slicedFruits.end(); ++pos) {
+//    for (pos = contactListener->tanks.begin();
+//         pos != contactListener->tanks.end(); ++pos) {
 //        b2Body *body = *pos;
 //        CCNode *contactNode = (CCNode *)body->GetUserData();
-//        CGPoint position = contactNode.position;
-//        for (int i = 0; i < 6; i++) {
-//            CCNode *superNode = [self getChildByTag:GameLayerTagFruitBatch0+i];
-//            if ([superNode.children containsObject:contactNode])
-//                [superNode removeChild:contactNode cleanup:YES];
-//        }
-//        world->DestroyBody(body);
-//        --fruitCount;
-//        CCParticleSun *explosion = [[CCParticleSun alloc] initWithTotalParticles:200];
-//        explosion.autoRemoveOnFinish = YES;
-//        explosion.startSize = 10.0f;
-//        explosion.speed = 70.0f;
-//        explosion.anchorPoint = ccp(0.5f, 0.5f);
-//        explosion.position = position;
-//        explosion.duration = 1.0f;
-//        [self addChild:explosion z:11];
-//        [explosion release];
+//        CCPoint position = contactNode->getPosition();
+//        
+    if (contactListener->isCannonballContacted) {
+        contactListener->isCannonballContacted = false;
+        Tank *attackingTank = turn==GameTurnPlayerRed?tankGreen:tankRed;
+        Tank *attackedTank = turn==GameTurnPlayerGreen?tankGreen:tankRed;
+        attackedTank->body->SetAwake(false);
+        attackingTank->cannonBody->SetAwake(false);
+        attackingTank->cannonball->setVisible(false);
+        CCParticleSun *explosion = CCParticleSun::createWithTotalParticles(200);
+        explosion->setAutoRemoveOnFinish(true);
+        explosion->setStartSize(20.0f);
+        explosion->setSpeed(70.0f);
+        explosion->setAnchorPoint(ccp(0.5f, 0.5f));
+        explosion->setPosition(attackedTank->getPosition());
+        explosion->setDuration(1.0f);
+        this->addChild(explosion, 11);
+        if (turn == GameTurnPlayerRed) {
+            CCLabelTTF *scoreLabel = (CCLabelTTF*)this->getChildByTag(GameLayerTagLabelRed);
+            scoreRed += 10;
+            char str[16];
+            sprintf(str, "Score: %ld", scoreRed);
+            scoreLabel->setString(str);
+        } else if (turn == GameTurnPlayerGreen) {
+            scoreGreen += 10;
+            CCLabelTTF *scoreLabel = (CCLabelTTF*)this->getChildByTag(GameLayerTagLabelGreen);
+            char str[16];
+            sprintf(str, "Score: %ld", scoreGreen);
+            scoreLabel->setString(str);
+        }
+//        this->removeChild(tank);
+//        CCScene *currentScene = CCDirector::sharedDirector()->getRunningScene();
+//        CCScene *newScene = (CCScene *)GameLayer::create();
+//        CCDirector::sharedDirector()->replaceScene(newScene);
+    }
 //    }
 //    contactListener->slicedFruits.clear();
 //    if (knifeCount) {
 //        if (knifeBody->GetPosition().y < -.625 || (knifeBody->GetLinearVelocity() == b2Vec2_zero && knifeBody->IsAwake())) [self performSelector:@selector(knifeFell)];
 //        knife.rotation += knifeBody->GetLinearVelocity().Length();
 //        if (knife.rotation >= 360) knife.rotation = 0;
-//            }
+//
+}
+
+void GameLayer::draw()
+{
+    CCLayer::draw();
+    glClearColor(0.9, 0.9, 0.9, 0.9);
+}
+
+void GameLayer::reload()
+{
+//    if (turn == GameTurnPlayerRed) { //green tank down
+//        tankGreen->cannonBody->SetTransform(b2Vec2(36.0f, 42.0f), 0.0f);
+//    } else if (turn == GameTurnPlayerGreen) {
+//        tankRed->cannonBody->SetTransform(b2Vec2(28.0f, 42.0f), 0.0f);
+//    }
+    turn = GameTurnPlayerRed;
+    tankRed->reload();
+    tankGreen->reload();
 }
 
 GameLayer::~GameLayer()

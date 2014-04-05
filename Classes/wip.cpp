@@ -1,13 +1,15 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <time.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cmath>
+#include <ctime>
 
-struct shape
-{
-  struct b2Vec2 *vertices;
-  int vertexCount;
-};
+using namespace std;
+
+#define WIDTH 480
+#define HEIGHT 320
+
+#include "wip.h"
+
 
 struct ellipse
 {
@@ -16,16 +18,17 @@ struct ellipse
 };
 
 struct ellipse relps(void);
-struct b2Vec2 inrpt(float,float,float,float);
+b2Vec2 inrpt(float,float,float,float);
 
-int earthen(struct shape *shape_pt)
+int earthen(struct shape *&shape_pt)
 {
-  float shift = visibleSize.width;
+    int nshapes;
+  float shift = WIDTH;
   char end = 0;
   nshapes = 1;      //number of shapes
 
   struct ellipse e;
-  struct shape shapes[6];
+  struct shape *shapes = (struct shape *)malloc(6 * sizeof(struct shape));
 
   srand(time(NULL));
 
@@ -36,13 +39,13 @@ int earthen(struct shape *shape_pt)
 
   e = relps();
   n = rand()%2 + 2;
-  (shapes+i)->vertices = (struct b2Vec2*) malloc(sizeof(struct b2Vec2)+(n+2)*sizeof(struct b2Vec2));
-  ((shapes+i)->vertices+j)->x = visibleSize.width; 
+  (shapes+i)->vertices = (b2Vec2*) malloc(sizeof(b2Vec2)+(n+2)*sizeof(b2Vec2));
+  ((shapes+i)->vertices+j)->x = WIDTH; 
   ((shapes+i)->vertices+j)->y = e.b;
 
   for(j=1;j<=n;++j)
   {
-    *((shapes+i)->vertices+j) = inrpt(e.a,e.b,visibleSize.width-j*e.a/(n+1),shift);
+    *((shapes+i)->vertices+j) = inrpt(e.a,e.b,WIDTH-j*e.a/(n+1),shift);
   }
 
   ((shapes+i)->vertices+j)->x = ((shapes+i)->vertices+j-1)->x;
@@ -63,7 +66,7 @@ int earthen(struct shape *shape_pt)
       end = 1;
       shift -= e.a;
       n = rand()%3 + 1;
-      (shapes+i)->vertices = (struct b2Vec2*) malloc(sizeof(struct b2Vec2)+(n+3)*sizeof(struct b2Vec2));
+      (shapes+i)->vertices = (b2Vec2*) malloc(sizeof(b2Vec2)+(n+3)*sizeof(b2Vec2));
       ((shapes+i)->vertices+j)->x = ((shapes+i-1)->vertices+(shapes+i-1)->vertexCount-3)->x; 
       ((shapes+i)->vertices+j)->y = ((shapes+i-1)->vertices+(shapes+i-1)->vertexCount-3)->y;
 
@@ -88,7 +91,7 @@ int earthen(struct shape *shape_pt)
     {
       shift -= e.a;
       n = rand()%5 + 1;
-      (shapes+i)->vertices = (struct b2Vec2*) malloc(sizeof(struct b2Vec2)+(n+2)*sizeof(struct b2Vec2));
+      (shapes+i)->vertices = (b2Vec2*) malloc(sizeof(b2Vec2)+(n+2)*sizeof(b2Vec2));
       ((shapes+i)->vertices+j)->x = ((shapes+i-1)->vertices+(shapes+i-1)->vertexCount-3)->x; 
       ((shapes+i)->vertices+j)->y = ((shapes+i-1)->vertices+(shapes+i-1)->vertexCount-3)->y;
 
@@ -111,13 +114,13 @@ int earthen(struct shape *shape_pt)
   }
   nshapes = i+1;
  
-  shape = &shapes[0];
+  shape_pt = shapes;
   return nshapes;
 }
 
-struct b2Vec2 inrpt(float a,float b,float x, float shift)
+b2Vec2 inrpt(float a,float b,float x, float shift)
 {
-  struct b2Vec2 pt;
+  b2Vec2 pt;
   
   pt.x = x;
   pt.y = b*sqrtf(1-((x-shift)/a)*((x-shift)/a));
@@ -131,16 +134,16 @@ struct ellipse relps(void)
   struct ellipse e;
 
   srand(time(NULL));
-  e.b = (rand()+1)/( (float) RAND_MAX+1)*visibleSize.height/2.5f; // the division by 2 needs tweaking
-  e.a = (rand()+1)/( (float) RAND_MAX+1)*visibleSize.width/2.5f;
+  e.b = (rand()+1)/( (float) RAND_MAX+1)*HEIGHT/2.5f; // the division by 2 needs tweaking
+  e.a = (rand()+1)/( (float) RAND_MAX+1)*WIDTH/2.5f;
 
-  if(e.a < visibleSize.width/6 )
+  if(e.a < WIDTH/6 )
   {
-    e.a = visibleSize.width/6;
+    e.a = WIDTH/6;
   }
-  if(e.b < visibleSize.height/6 )
+  if(e.b < HEIGHT/6 )
   {
-    e.b = visibleSize.height/6;
+    e.b = HEIGHT/6;
   }
   return e;
 }

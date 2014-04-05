@@ -171,6 +171,10 @@
 		1AFAF8C416D3884900DB1158 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C116D3884900DB1158 /* CloseSelected.png */; };
 		1AFAF8C516D3884900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C216D3884900DB1158 /* HelloWorld.png */; };
 		1AFAF8CA16D3886000DB1158 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */; };
+		2E00555318EFFC6E007FB08E /* Tank.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E00555118EFFC6E007FB08E /* Tank.cpp */; };
+		2E00555918F01A4A007FB08E /* green_barrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E00555718F01A4A007FB08E /* green_barrel.png */; };
+		2E00555A18F01A4A007FB08E /* red_barrel.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E00555818F01A4A007FB08E /* red_barrel.png */; };
+		2E00555C18F05F8E007FB08E /* wip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2E00555B18F05F8E007FB08E /* wip.cpp */; };
 		2EECD04F18EFA1F300827E37 /* ButtonReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD02618EFA1F300827E37 /* ButtonReader.cpp */; };
 		2EECD05018EFA1F300827E37 /* CheckBoxReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD02918EFA1F300827E37 /* CheckBoxReader.cpp */; };
 		2EECD05118EFA1F300827E37 /* ImageViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD02C18EFA1F300827E37 /* ImageViewReader.cpp */; };
@@ -595,6 +599,12 @@
 		1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		1AFAF8C716D3886000DB1158 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* BallMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E00555118EFFC6E007FB08E /* Tank.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tank.cpp; path = ../Classes/Tank.cpp; sourceTree = "<group>"; };
+		2E00555218EFFC6E007FB08E /* Tank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tank.h; path = ../Classes/Tank.h; sourceTree = "<group>"; };
+		2E00555718F01A4A007FB08E /* green_barrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_barrel.png; sourceTree = "<group>"; };
+		2E00555818F01A4A007FB08E /* red_barrel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_barrel.png; sourceTree = "<group>"; };
+		2E00555B18F05F8E007FB08E /* wip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = wip.cpp; path = ../Classes/wip.cpp; sourceTree = "<group>"; };
+		2E00555D18F06D6A007FB08E /* wip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = wip.h; path = ../Classes/wip.h; sourceTree = "<group>"; };
 		2EECD02618EFA1F300827E37 /* ButtonReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonReader.cpp; sourceTree = "<group>"; };
 		2EECD02718EFA1F300827E37 /* ButtonReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonReader.h; sourceTree = "<group>"; };
 		2EECD02918EFA1F300827E37 /* CheckBoxReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CheckBoxReader.cpp; sourceTree = "<group>"; };
@@ -802,12 +812,16 @@
 			children = (
 				2EECD06418EFB2A400827E37 /* ContactListener.cpp */,
 				2EECD06518EFB2A400827E37 /* ContactListener.h */,
+				2E00555118EFFC6E007FB08E /* Tank.cpp */,
+				2E00555218EFFC6E007FB08E /* Tank.h */,
 				2EECD06018EFA86800827E37 /* GameLayer.cpp */,
 				2EECD06118EFA86800827E37 /* GameLayer.h */,
 				2EECD06718EFD6B300827E37 /* Ground.cpp */,
 				2EECD06818EFD6B300827E37 /* Ground.h */,
 				1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */,
 				1AFAF8C716D3886000DB1158 /* AppDelegate.h */,
+				2E00555B18F05F8E007FB08E /* wip.cpp */,
+				2E00555D18F06D6A007FB08E /* wip.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1860,6 +1874,8 @@
 				2EECD06A18EFE97800827E37 /* cannon_ball.png */,
 				2EECD06B18EFE97800827E37 /* green_tank.png */,
 				2EECD06C18EFE97800827E37 /* red_tank.png */,
+				2E00555718F01A4A007FB08E /* green_barrel.png */,
+				2E00555818F01A4A007FB08E /* red_barrel.png */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -1954,9 +1970,11 @@
 				15C157DA168315B300D239F2 /* CMakeLists.txt in Resources */,
 				1AFAF8C316D3884900DB1158 /* CloseNormal.png in Resources */,
 				1AFAF8C416D3884900DB1158 /* CloseSelected.png in Resources */,
+				2E00555A18F01A4A007FB08E /* red_barrel.png in Resources */,
 				2EECD06F18EFE97800827E37 /* red_tank.png in Resources */,
 				2EECD06E18EFE97800827E37 /* green_tank.png in Resources */,
 				1AFAF8C516D3884900DB1158 /* HelloWorld.png in Resources */,
+				2E00555918F01A4A007FB08E /* green_barrel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2012,6 +2030,7 @@
 				15C1575F1683159E00D239F2 /* b2ContactSolver.cpp in Sources */,
 				2EECD06918EFD6B300827E37 /* Ground.cpp in Sources */,
 				3E26D44718ACFEC500834404 /* UILabel.cpp in Sources */,
+				2E00555C18F05F8E007FB08E /* wip.cpp in Sources */,
 				15C157601683159E00D239F2 /* b2EdgeAndCircleContact.cpp in Sources */,
 				15C157611683159E00D239F2 /* b2EdgeAndPolygonContact.cpp in Sources */,
 				15C157621683159E00D239F2 /* b2PolygonAndCircleContact.cpp in Sources */,
@@ -2188,6 +2207,7 @@
 				379BBA9117F03FDE00829B88 /* CCComAudio.cpp in Sources */,
 				379BBA9217F03FDE00829B88 /* CCComController.cpp in Sources */,
 				379BBA9317F03FDE00829B88 /* CCComRender.cpp in Sources */,
+				2E00555318EFFC6E007FB08E /* Tank.cpp in Sources */,
 				2EECD06218EFA86800827E37 /* GameLayer.cpp in Sources */,
 				379BBA9417F03FDE00829B88 /* CCInputDelegate.cpp in Sources */,
 				375BD4FA186841880024609E /* CCActionEaseEx.cpp in Sources */,
