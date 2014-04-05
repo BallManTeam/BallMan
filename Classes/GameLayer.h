@@ -15,9 +15,9 @@
 
 #define DEBUG_DRAW_STATE 1 // 0-Off 1-On
 
-#if DEBUG_DRAW_STATE && DEBUG
-#define DEBUG_DRAW
-#endif
+//#if DEBUG_DRAW_STATE && DEBUG
+//#define DEBUG_DRAW
+//#endif
 
 class GameLayer : cocos2d::CCLayer
 {

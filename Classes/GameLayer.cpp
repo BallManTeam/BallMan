@@ -75,9 +75,7 @@ bool GameLayer::init()
     groundBodyDef.position.Set(0, 0);
     b2Body *groundBody = world->CreateBody(&groundBodyDef);
     b2PolygonShape groundBox;
-    groundBox.SetAsEdge(b2Vec2(0, visibleSize.height+500), b2Vec2(0, 0));
-    groundBody->CreateFixture(&groundBox, 0);
-    groundBox.SetAsEdge(b2Vec2(visibleSize.width, visibleSize.height + 500), b2Vec2(visibleSize.width, 0));
+    groundBox.SetAsBox(visibleSize.width/2, visibleSize.height/2);
     groundBody->CreateFixture(&groundBox, 0);
     
     return true;
