@@ -62,9 +62,23 @@ bool GameLayer::init()
         return false;
     }
     
+    b2Vec2 gravity;
+    gravity.Set(0.0f, -10.0f);
+    world = new b2World(gravity);
+    world->SetContinuousPhysics(true);
+    world->SetContactListener(contactListener = new ContactListener());
+    
     CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
     CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
     
+    b2BodyDef groundBodyDef;
+    groundBodyDef.position.Set(0, 0);
+    b2Body *groundBody = world->CreateBody(&groundBodyDef);
+    b2PolygonShape groundBox;
+    groundBox.SetAsEdge(b2Vec2(0, visibleSize.height+500), b2Vec2(0, 0));
+    groundBody->CreateFixture(&groundBox, 0);
+    groundBox.SetAsEdge(b2Vec2(visibleSize.width, visibleSize.height + 500), b2Vec2(visibleSize.width, 0));
+    groundBody->CreateFixture(&groundBox, 0);
     
     return true;
 }

@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "Box2D.h"
+#include "ContactListener.h"
 
 #define DEBUG_DRAW_STATE 1 // 0-Off 1-On
 
@@ -27,7 +28,7 @@ private:
 	GLESDebugDraw *m_debugDraw;
     BOOL isDebugDrawEnabled;
 #endif
-    
+    ContactListener *contactListener;
     
     
 public:

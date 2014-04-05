@@ -186,6 +186,7 @@
 		2EECD05B18EFA1F300827E37 /* TextFieldReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD04A18EFA1F300827E37 /* TextFieldReader.cpp */; };
 		2EECD05C18EFA1F300827E37 /* WidgetReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD04C18EFA1F300827E37 /* WidgetReader.cpp */; };
 		2EECD06218EFA86800827E37 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD06018EFA86800827E37 /* GameLayer.cpp */; };
+		2EECD06618EFB2A400827E37 /* ContactListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD06418EFB2A400827E37 /* ContactListener.cpp */; };
 		375BD4DD1868416B0024609E /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4D51868416B0024609E /* ObjectFactory.cpp */; };
 		375BD4DE1868416B0024609E /* TriggerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4D71868416B0024609E /* TriggerBase.cpp */; };
 		375BD4DF1868416B0024609E /* TriggerMng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4D91868416B0024609E /* TriggerMng.cpp */; };
@@ -621,6 +622,8 @@
 		2EECD04E18EFA1F300827E37 /* WidgetReaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetReaderProtocol.h; sourceTree = "<group>"; };
 		2EECD06018EFA86800827E37 /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameLayer.cpp; path = ../Classes/GameLayer.cpp; sourceTree = "<group>"; };
 		2EECD06118EFA86800827E37 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameLayer.h; path = ../Classes/GameLayer.h; sourceTree = "<group>"; };
+		2EECD06418EFB2A400827E37 /* ContactListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContactListener.cpp; path = ../Classes/ContactListener.cpp; sourceTree = "<group>"; };
+		2EECD06518EFB2A400827E37 /* ContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactListener.h; path = ../Classes/ContactListener.h; sourceTree = "<group>"; };
 		373B912118788FC200198F86 /* CCComBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCComBase.h; sourceTree = "<group>"; };
 		375BD4D51868416B0024609E /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectFactory.cpp; sourceTree = "<group>"; };
 		375BD4D61868416B0024609E /* ObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectFactory.h; sourceTree = "<group>"; };
@@ -788,6 +791,8 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2EECD06418EFB2A400827E37 /* ContactListener.cpp */,
+				2EECD06518EFB2A400827E37 /* ContactListener.h */,
 				2EECD06018EFA86800827E37 /* GameLayer.cpp */,
 				2EECD06118EFA86800827E37 /* GameLayer.h */,
 				1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */,
@@ -2095,6 +2100,7 @@
 				15C15945168315E500D239F2 /* CCTableViewCell.cpp in Sources */,
 				15C15946168315E500D239F2 /* HttpClient.cpp in Sources */,
 				375BD4FF186841880024609E /* CCActionObject.cpp in Sources */,
+				2EECD06618EFB2A400827E37 /* ContactListener.cpp in Sources */,
 				15C15947168315E500D239F2 /* CCPhysicsDebugNode.cpp in Sources */,
 				15C15948168315E500D239F2 /* CCPhysicsSprite.cpp in Sources */,
 				15D8B23E168318C3006C7997 /* CDAudioManager.m in Sources */,
