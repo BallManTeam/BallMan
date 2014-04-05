@@ -160,7 +160,6 @@
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/CCEditBox.o
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/CCEditBoxImplMac.o
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/AppDelegate.o
-/Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/HelloWorldScene.o
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/Animation.o
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/AnimationState.o
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/AnimationStateData.o
@@ -218,6 +217,7 @@
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/CCComAudio.o
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/CCComController.o
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/CCComRender.o
+/Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/GameLayer.o
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/CCInputDelegate.o
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/CCActionEaseEx.o
 /Users/xinranmsn/Downloads/cocos2d-x-2.2.3/projects/BallMan/proj.mac/build/BallMan.build/Debug/BallMan.build/Objects-normal/i386/DictionaryHelper.o

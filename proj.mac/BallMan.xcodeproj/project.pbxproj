@@ -171,7 +171,6 @@
 		1AFAF8C416D3884900DB1158 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C116D3884900DB1158 /* CloseSelected.png */; };
 		1AFAF8C516D3884900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C216D3884900DB1158 /* HelloWorld.png */; };
 		1AFAF8CA16D3886000DB1158 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */; };
-		1AFAF8CB16D3886000DB1158 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C816D3886000DB1158 /* HelloWorldScene.cpp */; };
 		2EECD04F18EFA1F300827E37 /* ButtonReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD02618EFA1F300827E37 /* ButtonReader.cpp */; };
 		2EECD05018EFA1F300827E37 /* CheckBoxReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD02918EFA1F300827E37 /* CheckBoxReader.cpp */; };
 		2EECD05118EFA1F300827E37 /* ImageViewReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD02C18EFA1F300827E37 /* ImageViewReader.cpp */; };
@@ -186,6 +185,7 @@
 		2EECD05A18EFA1F300827E37 /* SliderReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD04718EFA1F300827E37 /* SliderReader.cpp */; };
 		2EECD05B18EFA1F300827E37 /* TextFieldReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD04A18EFA1F300827E37 /* TextFieldReader.cpp */; };
 		2EECD05C18EFA1F300827E37 /* WidgetReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD04C18EFA1F300827E37 /* WidgetReader.cpp */; };
+		2EECD06218EFA86800827E37 /* GameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD06018EFA86800827E37 /* GameLayer.cpp */; };
 		375BD4DD1868416B0024609E /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4D51868416B0024609E /* ObjectFactory.cpp */; };
 		375BD4DE1868416B0024609E /* TriggerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4D71868416B0024609E /* TriggerBase.cpp */; };
 		375BD4DF1868416B0024609E /* TriggerMng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4D91868416B0024609E /* TriggerMng.cpp */; };
@@ -589,8 +589,6 @@
 		1AFAF8C216D3884900DB1158 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		1AFAF8C716D3886000DB1158 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
-		1AFAF8C816D3886000DB1158 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = ../Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
-		1AFAF8C916D3886000DB1158 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = ../Classes/HelloWorldScene.h; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* BallMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EECD02618EFA1F300827E37 /* ButtonReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ButtonReader.cpp; sourceTree = "<group>"; };
 		2EECD02718EFA1F300827E37 /* ButtonReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonReader.h; sourceTree = "<group>"; };
@@ -621,6 +619,8 @@
 		2EECD04C18EFA1F300827E37 /* WidgetReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WidgetReader.cpp; sourceTree = "<group>"; };
 		2EECD04D18EFA1F300827E37 /* WidgetReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetReader.h; sourceTree = "<group>"; };
 		2EECD04E18EFA1F300827E37 /* WidgetReaderProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetReaderProtocol.h; sourceTree = "<group>"; };
+		2EECD06018EFA86800827E37 /* GameLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameLayer.cpp; path = ../Classes/GameLayer.cpp; sourceTree = "<group>"; };
+		2EECD06118EFA86800827E37 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameLayer.h; path = ../Classes/GameLayer.h; sourceTree = "<group>"; };
 		373B912118788FC200198F86 /* CCComBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCComBase.h; sourceTree = "<group>"; };
 		375BD4D51868416B0024609E /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectFactory.cpp; sourceTree = "<group>"; };
 		375BD4D61868416B0024609E /* ObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectFactory.h; sourceTree = "<group>"; };
@@ -788,10 +788,10 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2EECD06018EFA86800827E37 /* GameLayer.cpp */,
+				2EECD06118EFA86800827E37 /* GameLayer.h */,
 				1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */,
 				1AFAF8C716D3886000DB1158 /* AppDelegate.h */,
-				1AFAF8C816D3886000DB1158 /* HelloWorldScene.cpp */,
-				1AFAF8C916D3886000DB1158 /* HelloWorldScene.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -2107,7 +2107,6 @@
 				8C583FAD169DB6D500F63A10 /* CCEditBox.cpp in Sources */,
 				8C583FAE169DB6D500F63A10 /* CCEditBoxImplMac.mm in Sources */,
 				1AFAF8CA16D3886000DB1158 /* AppDelegate.cpp in Sources */,
-				1AFAF8CB16D3886000DB1158 /* HelloWorldScene.cpp in Sources */,
 				1A40E75B1727BFC6006D4861 /* Animation.cpp in Sources */,
 				1A40E75C1727BFC6006D4861 /* AnimationState.cpp in Sources */,
 				1A40E75D1727BFC6006D4861 /* AnimationStateData.cpp in Sources */,
@@ -2165,6 +2164,7 @@
 				379BBA9117F03FDE00829B88 /* CCComAudio.cpp in Sources */,
 				379BBA9217F03FDE00829B88 /* CCComController.cpp in Sources */,
 				379BBA9317F03FDE00829B88 /* CCComRender.cpp in Sources */,
+				2EECD06218EFA86800827E37 /* GameLayer.cpp in Sources */,
 				379BBA9417F03FDE00829B88 /* CCInputDelegate.cpp in Sources */,
 				375BD4FA186841880024609E /* CCActionEaseEx.cpp in Sources */,
 				379BBAAE17F03FDE00829B88 /* DictionaryHelper.cpp in Sources */,
