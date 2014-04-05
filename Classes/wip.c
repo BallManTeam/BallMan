@@ -3,22 +3,6 @@
 #include <math.h>
 #include <time.h>
 
-////////////////////////////////////////////
-
-struct b2Vec2
-{
-  float x;
-  float y;
-};
-
-struct dim
-{
-  float width;
-  float height;
-} visibleSize = {600.0f,800.0f};
-
-////////////////////////////////////////////////
-
 struct shape
 {
   struct b2Vec2 *vertices;
@@ -34,11 +18,11 @@ struct ellipse
 struct ellipse relps(void);
 struct b2Vec2 inrpt(float,float,float,float);
 
-int main()
+int earthen(struct shape *shape_pt)
 {
   float shift = visibleSize.width;
   char end = 0;
-  int nshapes = 1;      //number of shapes
+  nshapes = 1;      //number of shapes
 
   struct ellipse e;
   struct shape shapes[6];
@@ -127,16 +111,8 @@ int main()
   }
   nshapes = i+1;
  
-  for(i = 0;i<nshapes;++i)
-  { 
-    for(j = 0;j<(shapes+i)->vertexCount;++j)
-    {
-      printf("%f %f\n",((shapes + i)->vertices+j)->x,((shapes + i)->vertices+j)->y);
-    }
-    printf("\n");
-  }
-
-  return 0;
+  shape = &shapes[0];
+  return nshapes;
 }
 
 struct b2Vec2 inrpt(float a,float b,float x, float shift)
